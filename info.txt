@@ -1,0 +1,220 @@
+---NODE JS---
+
+----Nodes Variable
+__dirname _ path to current directory (C:\Users\jastine.magboo\Documents\Tutorial (Node)
+__filename - file name
+require - function to use modules ((CommonJS) - every file is module (by default))
+module - info about current module (file)
+process - info about environment where the program is being executed
+
+----Method/Globals
+setInterval - method calls a function at specified intervals (in milliseconds). (1000 = 1 second)
+setTimeout - calls a function after a number of milliseconds.
+
+----Modules in Node
+module - encapsulated code (only share what want,only share minimum)
+`Backticks are an ES6 feature that allows you to create strings in JavaScript
+((CommonJS) - every file in module is a node (by default))
+module.exports = {tin,jeca,ja} - to print the value that we assign
+module.exports.name = {tin,jeca,ja} = the output name: {jastine,jessica,jane}
+require - function to use modules (./ - third party modules - to callout the files or modules)
+default - import function into the same name 
+const firstName = (name) => {
+    console.log(`Hello there ${name}`);
+}
+module.exports = firstName
+
+-other modules
+to callout the default - const firstName= require('./func')
+
+
+----Alternative Syntax 
+
+
+----Mind Grenade 
+require('./7-num') connected to add() - if it is function
+function add(){}
+add()
+ ' ' - can help to have a space
+
+
+----Built-In Module Intro 
+https://nodejs.org/en/docs/
+https://nodejs.org/dist/latest-v18.x/docs/api/documentation.html
+
+
+----Os Module 
+interacting in operating system
+
+----Path Module
+sep \ ' /
+filepath - is the path of the file we want to read.
+path.join() -
+path.basename() method - is used to get the filename portion of a path to the file.
+path.resolve(__dirname, 'content', 'subfolder', 'text.text') - depends on what you want to call
+
+
+----Fs (file system) Module (Sync)
+readFileSync - to read and access the content of that file
+writeFileSync - to create new files 
+
+writeFileSync(
+    './content/result-sync.txt',
+    `The result: ${first}, ${second}`)
+
+result-sync.txt - been created
+`Here is the result: ${first}, ${second}` - will printout the output in the created file
+
+
+----Fs Module (Async)
+utf8 - without this it will not show the output. it will show the buffer (ex: readFileSync('./content/first.txt', 'utf8'))
+
+*Callback* - A callback is a function which is called when a task is completed ((()=>{})
+ const first = result;
+    readFile('./content/second.txt','utf8',(err,result) =>{
+    if (err){
+        console.log(err)
+        return
+    }
+
+readFile - to read and access the content of that file
+writeFile - to create new files 
+
+
+----Sync Vs Async
+https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/
+Synchronous - is known as a blocking architecture,  it follows a strict set of sequences, which means that operations are performed one at a time, in perfect order. While one operation is being performed, other operations’ instructions are blocked. The completion of the first task triggers the next, and so on. (readFile, server.listen is sync)
+
+Asynchronous -  is a non-blocking architecture, which means it doesn’t block further execution while one or more operations are in progress.
+
+----HTTP Module
+large part of this are creating server and API
+HTTP - Hyper Text Transfer Protocol To include the HTTP module, use the require() method
+(res.write) - response -  is sending back
+request - 
+response - what will sending out
+
+
+An external node - is one without child branches, while an internal node has at least one child branch.
+
+method:
+server.listen(5000) - is for request in http
+write -
+end -
+no if, *res.end* - only if want a default response
+<a href="/">back home</a> - for the link
+
+res.end(`<h1> Ooopss </h1>
+<p> We cant seem to find the page that you are looking for</p>
+<a href="/">back home</a> `)
+}) -  
+
+
+----API----
+https://www.tutorialspoint.com/nodejs/nodejs_restful_api.htm
+REST stands for REpresentational State Transfer.
+HTTP methods are commonly used in REST
+GET − This is used to provide a read only access to a resource.
+PUT − This is used to create a new resource.
+DELETE − This is used to remove a resource.
+POST − This is used to update a existing resource or create a new resource.
+
+
+----NPM Info
+2 types of module
+npm - node package manager, automatically install npm, reusable code, global command, npm --version
+
+local dependency - use it only in particular project
+npm i <packageName>
+
+global dependency - use it in any project
+npm install -g <packageName>
+sudo install -g <packageName>
+
+package.json - manifest file (stores important info about project/package
+manual approach (createa package.json in the root, create properties etc
+npm init (step by step, press enter to skip) - after that will automatically install the package.json / initialize a project and create the package. json file.
+package.json - share the code
+npm init -y (everything default)
+
+npm helps us 3 things - npm.js.com
+    - reused our own code in other project
+    - use code written by other developes
+    - share our own solution with other developers
+
+*step by step*
+npm init -y - initialize a project and create the package. json file.
+npm i lodash - install the package-lock.json and node modules that will see the dependencies
+npm i bootstrap - large package
+
+
+*creating new repo in github*
+open acct
+create new repo
+add repository name
+to push - get the url - ex. git remote add origin https://github.com/jastinemagboo/tutorial.git
+back to vs studio
+click package.json and create a new file ex. .gitignore
+gitignore - mean if you dont want to push the file in repository and input the filename inside (ex. /node_modules
+then new terminal
+type git init - to Initialized empty Git repository
+git add . -to 
+git commit -m "first tutorial commit"
+
+npm install - will install the packages that in dependencies
+dependencies - are the package references that are used by your library without which it cannot work and to be installed along with your library installation automatically.
+
+*command for dependencies*
+npm i nodemon -D or --save-dev  - will install the devdependencies
+
+Nodemon - is a popular tool that is used for the development of applications based on node. js. It simply restarts the node application whenever it observes the changes in the file present in the working directory of your project.
+
+dependencies : Packages required by your application in production. 
+devDependencies : Packages that are only needed for local development and testing packages.
+script work in package.json
+
+scripts: change that want to run
+ "scripts": {
+    "start":"nodemon app.js"
+  },
+
+*command*
+npm uninstall bootstrap - or any package that you want to uninstall
+npm i bootstrap - or any package that you want to install
+npm install - install the node_modules, package-lock.json
+npm global - is to use for other framework globally like react
+
+
+----Package-Lock.Json----
+Package-Lock.Json - it contains basic information about the project
+https://nodesource.com/blog/the-basics-of-package-json
+
+
+----Important Topics----
+
+*Event Loops*
+Event Loops - non-blocking operations, offloading operations
+https://nodejs.dev/en/learn/introduction-to-nodejs/
+15mins video - https://youtu.be/PNa9OMajw9w
+
+*Event Loop Slides*
+examples on code 
+
+*Async Patterns - Blocking Code*
+examples on code 
+
+
+*Async Patterns - Setup Promises*
+.then - then() method returns a Promise. It takes two arguments: callback functions for the success and failure cases of the Promise. The Promise object is used for deferred and asynchronous computations.
+.catch - when a promise fails, you catch the error, and do something with the error information
+.finally -  when a promise settles (fails or passes), you can finally do something
+
+async, await, callback
+
+
+
+
+
+
+
+
